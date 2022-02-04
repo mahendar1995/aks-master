@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: ntsaks 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ntsaks
+  template:
+    metadata:
+      labels:
+        app: ntsaks 
+    spec:
+      containers:
+        - name: ntsaks 
+          image: ntsregistry.azurecr.io/ntsaks
+          ports:
+          - containerPort: 8080
